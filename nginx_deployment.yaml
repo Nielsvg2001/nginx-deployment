@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx # Name of the deployment
+  namespace: nginx # Name of the namespace
+  labels:
+    app: nginx # Name of your application
+spec:
+  selector:
+    matchLabels:
+      app: nginx # Name of your application
+  replicas: 1 # Number of replicas
+  template:
+    metadata:
+      labels:
+        app: nginx # Name of your application
+    spec:
+      containers:
+      - name: nginx # Name of the container
+        image: nginx:latest # The image you want to run
+        ports:
+        # Ports are the ports that your application uses.
+        - containerPort: 80 # The port that your application uses
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  nginx
+  namespace: nginx
+spec:
+  selector:
+    app:  nginx
+  type:  ClusterIP
+  ports:
+  - name:  http
+    port:  80
