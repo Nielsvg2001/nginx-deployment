@@ -36,13 +36,13 @@ spec:
     port:  80
 
 ---
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-ingress
+  name: nginx
   namespace: nginx
   annotations:
-    kubernetes.io/ingress.class: "traefik"
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
 spec:
   rules:
@@ -51,5 +51,7 @@ spec:
       - path: /nginx
         pathType: Prefix
         backend:
-          serviceName: nginx
-          servicePort: 80
+          service:
+            name: nginx
+            port:
+              number: 80
