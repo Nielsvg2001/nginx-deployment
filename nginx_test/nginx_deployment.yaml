@@ -21,6 +21,10 @@ spec:
         ports:
         # Ports are the ports that your application uses.
         - containerPort: 80 # The port that your application uses
+tls:
+  - hosts:
+    - nginx.group2k8s.traineeship-2023.axxes.cloud # Your hostname
+    secretName: nginx.group2k8s.traineeship-2023.axxes.cloud  # Your TLS Secret
 ---
 apiVersion: v1
 kind: Service
@@ -56,3 +60,16 @@ spec:
             name: nginx
             port:
               number: 80
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx
+  namespace: nginx
+spec:
+  secretName: nginx.group2k8s.traineeship-2023.axxes.cloud
+  issuerRef:
+    name: ssl-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - nginx.group2k8s.traineeship-2023.axxes.cloud
