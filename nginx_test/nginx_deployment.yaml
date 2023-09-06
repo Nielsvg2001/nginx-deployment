@@ -1,3 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx
+  namespace: nginx
+spec:
+  secretName: nginx.group2k8s.traineeship-2023.axxes.cloud
+  issuerRef:
+    name: ssl-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - nginx.group2k8s.traineeship-2023.axxes.cloud
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -60,16 +73,3 @@ spec:
             name: nginx
             port:
               number: 80
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: nginx
-  namespace: nginx
-spec:
-  secretName: nginx.group2k8s.traineeship-2023.axxes.cloud
-  issuerRef:
-    name: ssl-issuer
-    kind: ClusterIssuer
-  dnsNames:
-    - nginx.group2k8s.traineeship-2023.axxes.cloud
