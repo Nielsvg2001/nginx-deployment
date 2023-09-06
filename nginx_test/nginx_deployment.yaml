@@ -56,10 +56,3 @@ spec:
             name: nginx
             port:
               number: 80
-# argocd health check fix
-data:
-    extensions/Ingress:
-        health.lua: |
-          hs = {}
-          hs.status = "Healthy"
-          return hs
