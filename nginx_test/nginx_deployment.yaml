@@ -34,10 +34,6 @@ spec:
         ports:
         # Ports are the ports that your application uses.
         - containerPort: 80 # The port that your application uses
-tls:
-  - hosts:
-    - nginx.group2k8s.traineeship-2023.axxes.cloud # Your hostname
-    secretName: nginx.group2k8s.traineeship-2023.axxes.cloud # Your TLS Secret
 ---
 apiVersion: v1
 kind: Service
@@ -75,3 +71,7 @@ spec:
             name: nginx  # The name of the service
             port:
               number: 80  # Service Portnumber
+tls:
+  - hosts:
+    - nginx.group2k8s.traineeship-2023.axxes.cloud # Your hostname
+    secretName: nginx.group2k8s.traineeship-2023.axxes.cloud # Your TLS Secret
