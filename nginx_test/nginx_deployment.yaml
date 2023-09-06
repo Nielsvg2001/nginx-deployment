@@ -64,12 +64,14 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
 spec:
   rules:
-  - http:
+  - host: "nginx.group2k8s.traineeship-2023.axxes.cloud"  # Your hostname
+    http:
       paths:
-      - path: /nginx
+      # Path-based routing settings:
+      - path: /
         pathType: Prefix
         backend:
           service:
-            name: nginx
+            name: nginx  # The name of the service
             port:
-              number: 80
+              number: 80  # Service Portnumber
