@@ -43,7 +43,7 @@ metadata:
   name: nginx
   namespace: nginx
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
   - http:
