@@ -37,7 +37,7 @@ spec:
 tls:
   - hosts:
     - nginx.group2k8s.traineeship-2023.axxes.cloud # Your hostname
-    secretName: nginx.group2k8s.traineeship-2023.axxes.cloud  # Your TLS Secret
+    secretName: nginx.group2k8s.traineeship-2023.axxes.cloud # Your TLS Secret
 ---
 apiVersion: v1
 kind: Service
