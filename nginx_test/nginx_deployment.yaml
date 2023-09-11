@@ -11,7 +11,7 @@ metadata:
 spec:
   secretName: nginx.group2k8s.traineeship-2023.axxes.cloud
   issuerRef:
-    name: ssl-issuer-prod
+    name: ssl-issuer-staging
     kind: ClusterIssuer
   dnsNames:
     - nginx.group2k8s.traineeship-2023.axxes.cloud
