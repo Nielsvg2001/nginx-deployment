@@ -3,6 +3,11 @@ kind: Certificate
 metadata:
   name: nginx
   namespace: nginx
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/hook: PostSync
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   secretName: nginx.group2k8s.traineeship-2023.axxes.cloud
   issuerRef:
@@ -59,6 +64,10 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/hook: PostSync
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   rules:
   - host: "nginx.group2k8s.traineeship-2023.axxes.cloud"  # Your hostname
