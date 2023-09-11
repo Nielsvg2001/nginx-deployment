@@ -63,6 +63,9 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   rules:
   - host: "nginx.group2k8s.traineeship-2023.axxes.cloud"  # Your hostname
