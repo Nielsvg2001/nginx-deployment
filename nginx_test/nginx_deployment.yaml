@@ -25,7 +25,7 @@ spec:
   selector:
     matchLabels:
       app: nginx # Name of your application
-  replicas: 1 # Number of replicas
+  replicas: 3 # Number of replicas
   template:
     metadata:
       labels:
